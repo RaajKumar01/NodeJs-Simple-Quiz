@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    
+    <title>Javascript Quiz - Quiz Page</title>
+  </head>
+  <body>
+        
+       <div class = "logout">
+             <h5>Welcome, <%= userName %></h5> 
+             <form action="/quit" method="post">
+             <button class="btn btn-danger">Logout</button>
+            </form>
+       </div>
+
+        <div class="card text-center">
+          <div class="card-header">
+            General Science <span><%= (questionid+1)%>/<%= GeneralScience.length %></span>
+          </div>
+          <div class="card-body">
+            
+              <h5 class="card-title">Question #<%= (questionid + 1) %></h5>
+       
+              <p class="card-text"><%= GeneralScience[questionid]["question"] %></p> <br>
+                <ul class="card-options">
+                <% for(let i = 0; i < 4; i++) { %>
+                  <li><%=  GeneralScience[questionid]["option"][i]["option"] %> </li>
+                <% } %>
+                </ul>
+              
+            
+          
+          </div>
+          <div class="card-footer">
+            <form action="/checkanswer" method="post">
+            <input type="text" class="form-control" name="option_submit" placeholder="Type Your Answer" autocomplete="off" required />
+            <button class="mt-2 btn btn-primary">Submit</button>
+            </form> 
+          </div>
+        </div>
+
+    <footer> Copyright ©  Raaj Kumar 2021 </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     
+  </body>
+</html>
